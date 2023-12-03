@@ -38,6 +38,9 @@ push:
 	docker buildx build $(DOCKER_OPTS) --push --platform $(PLATFORMS) -t "$(REPO_NAME)/$(IMAGE_NAME):latest" .
 	docker buildx build $(DOCKER_OPTS) --push --platform $(PLATFORMS) -t "$(REPO_NAME)/$(IMAGE_NAME):$(IMAGE_TAG)" .
 
+.PHONY: package
+package:
+	helm package --app-version $(IMAGE_TAG) --version $(IMAGE_TAG) deploy/* --destination $(OUT)
 
 .PHONY: rendered-manifest.yaml
 rendered-manifest.yaml:
