@@ -42,6 +42,10 @@ push:
 package:
 	helm package --app-version $(IMAGE_TAG) --version $(IMAGE_TAG) deploy/* --destination $(OUT)
 
+.PHONY: release
+release: push package
+	gh release create $(IMAGE_TAG) $(OUT)/*.tgz
+
 .PHONY: rendered-manifest.yaml
 rendered-manifest.yaml:
 	helm template \
