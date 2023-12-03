@@ -1,6 +1,6 @@
 # cert-manager webhook for Namecheap
 
-# Instructions for use with Let's Encrypt
+## Instructions for use with Let's Encrypt
 
 Thanks to [Addison van den Hoeven](https://github.com/Addyvan), from https://github.com/jetstack/cert-manager/issues/646
 
@@ -99,3 +99,12 @@ $ TEST_ZONE_NAME=example.com. make test
 
 The example file has a number of areas you must fill in and replace with your
 own options in order for tests to pass.
+
+## Release
+
+```sh
+git tag -a v1.2.3 -m 'Tag v1.2.3'
+git push --follow-tags
+make release
+```
+
