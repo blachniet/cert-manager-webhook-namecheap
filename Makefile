@@ -4,7 +4,8 @@ ARCH ?= $(shell go env GOARCH)
 IMAGE_NAME := cert-manager-webhook-namecheap
 IMAGE_TAG := $(shell git describe --dirty)
 REPO_NAME := blachniet
-PLATFORMS := linux/amd64,linux/arm64
+# PLATFORMS := linux/amd64,linux/arm64
+PLATFORMS := linux/amd64
 DOCKER_OPTS :=
 
 OUT := $(shell pwd)/_out
